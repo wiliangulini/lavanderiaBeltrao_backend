@@ -1,6 +1,5 @@
 package com.marina.springlavanderia.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,7 +10,6 @@ public class PedidosClients {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @JsonProperty("id")
   private Long id;
 
   @Column(length =  11)
@@ -27,11 +25,9 @@ public class PedidosClients {
   private String telefone;
 
   @Column(length =  10)
-  @JsonProperty("cep")
   private String cep;
 
   @Column(length =  150)
-  @JsonProperty("endereco.cidade")
   private String cidade;
 
   @Column(length =  150)
