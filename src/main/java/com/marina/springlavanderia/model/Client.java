@@ -33,6 +33,6 @@ public class Client {
   @Column(length =  150, nullable = false)
   private String bairro;
 
-  @Column(length =  150, nullable = true)
+  @Column(length =  150)
   private String complemento;
 }
