@@ -42,6 +42,7 @@ public class SpringLavanderiaApplication {
 //    };
 //
 //  }
+
   @Bean
   CommandLineRunner initDatabase(ClientRepository clientRepository) {
     return args -> {
