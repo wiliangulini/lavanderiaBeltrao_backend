@@ -38,4 +38,44 @@ public class PedidosClientsController {
 
     pedidosClientsRepository.save(pedidosClients);
   }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<PedidosClients> update(@PathVariable Long id, @RequestBody PedidosClients pedidosClients) {
+    return pedidosClientsRepository.findById(id)
+            .map(recordFound -> {
+              recordFound.setCliente(pedidosClients.getCliente());
+              recordFound.setData(pedidosClients.getData());
+              recordFound.setNumberPedido(pedidosClients.getNumberPedido());
+              recordFound.setTelefone(pedidosClients.getTelefone());
+              recordFound.setCep(pedidosClients.getCep());
+              recordFound.setNumCasa(pedidosClients.getNumCasa());
+              recordFound.setRua(pedidosClients.getRua());
+              recordFound.setCidade(pedidosClients.getCidade());
+              recordFound.setBairro(pedidosClients.getBairro());
+              recordFound.setComplemento(pedidosClients.getComplemento());
+              recordFound.setQuantidade(pedidosClients.getQuantidade());
+              recordFound.setDescricao(pedidosClients.getDescricao());
+              recordFound.setTotal(pedidosClients.getTotal());
+              recordFound.setQuantidade1(pedidosClients.getQuantidade1());
+              recordFound.setDescricao1(pedidosClients.getDescricao1());
+              recordFound.setTotal1(pedidosClients.getTotal1());
+              recordFound.setQuantidade2(pedidosClients.getQuantidade2());
+              recordFound.setDescricao2(pedidosClients.getDescricao2());
+              recordFound.setTotal2(pedidosClients.getTotal2());
+              recordFound.setQuantidade3(pedidosClients.getQuantidade3());
+              recordFound.setDescricao3(pedidosClients.getDescricao3());
+              recordFound.setTotal3(pedidosClients.getTotal3());
+              recordFound.setQuantidade4(pedidosClients.getQuantidade4());
+              recordFound.setDescricao4(pedidosClients.getDescricao4());
+              recordFound.setTotal4(pedidosClients.getTotal4());
+              recordFound.setQuantidade5(pedidosClients.getQuantidade5());
+              recordFound.setDescricao5(pedidosClients.getDescricao5());
+              recordFound.setTotal5(pedidosClients.getTotal5());
+
+              PedidosClients updated = pedidosClientsRepository.save(recordFound);
+              return ResponseEntity.ok().body(updated);
+            })
+            .orElse(ResponseEntity.notFound().build());
+
+  }
 }
