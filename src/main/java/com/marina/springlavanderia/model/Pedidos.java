@@ -6,7 +6,8 @@ import javax.persistence.*;
 
 @Data
 @Entity
-public class PedidosClients {
+@Table(name = "pedidos")
+public class Pedidos {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +22,7 @@ public class PedidosClients {
   @Column(length =  200, nullable = false)
   private String cliente;
 
-  @Column(length =  15, nullable = false)
+  @Column(length =  12, nullable = false)
   private String telefone;
 
   @Column(length =  10, nullable = false)
