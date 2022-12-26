@@ -72,6 +72,7 @@ public class PedidosClientsController {
               recordFound.setQuantidade5(pedidos.getQuantidade5());
               recordFound.setDescricao5(pedidos.getDescricao5());
               recordFound.setTotal5(pedidos.getTotal5());
+              recordFound.setValorFinal(pedidos.getValorFinal());
 
               Pedidos updated = pedidosClientsRepository.save(recordFound);
               return ResponseEntity.ok().body(updated);
@@ -79,4 +80,16 @@ public class PedidosClientsController {
             .orElse(ResponseEntity.notFound().build());
 
   }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> delete(@PathVariable Long id) {
+      return pedidosClientsRepository.findById(id)
+              .map(recordFound -> {
+
+                  pedidosClientsRepository.deleteById(id);
+                  return ResponseEntity.noContent().<Void>build();
+              })
+              .orElse(ResponseEntity.notFound().build());
+  }
+
 }

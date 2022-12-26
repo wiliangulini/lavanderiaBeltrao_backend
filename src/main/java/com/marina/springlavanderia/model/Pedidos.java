@@ -49,8 +49,8 @@ public class Pedidos {
   @Column(length =  150)
   private String descricao;
 
-  @Column(length =  200)
-  private String total;
+  @Column(length =  100)
+  private Number total;
 
   @Column(length =  100)
   private String quantidade1;
@@ -58,8 +58,8 @@ public class Pedidos {
   @Column(length =  150)
   private String descricao1;
 
-  @Column(length =  200)
-  private String total1;
+  @Column(length =  100)
+  private Number total1;
 
   @Column(length =  100)
   private String quantidade2;
@@ -67,8 +67,8 @@ public class Pedidos {
   @Column(length =  150)
   private String descricao2;
 
-  @Column(length =  200)
-  private String total2;
+  @Column(length =  100)
+  private Number total2;
 
   @Column(length =  100)
   private String quantidade3;
@@ -76,8 +76,8 @@ public class Pedidos {
   @Column(length =  150)
   private String descricao3;
 
-  @Column(length =  200)
-  private String total3;
+  @Column(length =  100)
+  private Number total3;
 
   @Column(length =  100)
   private String quantidade4;
@@ -85,8 +85,8 @@ public class Pedidos {
   @Column(length =  150)
   private String descricao4;
 
-  @Column(length =  200)
-  private String total4;
+  @Column(length =  100)
+  private Number total4;
 
   @Column(length =  100)
   private String quantidade5;
@@ -94,7 +94,10 @@ public class Pedidos {
   @Column(length =  150)
   private String descricao5;
 
-  @Column(length =  200)
-  private String total5;
+  @Column(length =  100)
+  private Number total5;
+
+  @Column(length =  100)
+  private Number valorFinal;
 
 }
