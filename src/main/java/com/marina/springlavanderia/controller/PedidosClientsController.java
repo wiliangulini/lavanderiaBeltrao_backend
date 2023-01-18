@@ -20,11 +20,6 @@ public class PedidosClientsController {
     return pedidosClientsRepository.findAll();
   }
 
-//  @GetMapping("/{numberPedido}")
-//  public List<PedidosClients> findByNumPedido(@PathVariable String numberPedido) {
-//    return pedidosClientsRepository.findByNumberPedido(numberPedido);
-//  }
-
   @GetMapping("/{id}")
   public ResponseEntity<Pedidos> findById(@PathVariable Long id) {
      return pedidosClientsRepository.findById(id)
@@ -34,10 +29,10 @@ public class PedidosClientsController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public void create(@RequestBody Pedidos pedidos) {
+  public Pedidos create(@RequestBody Pedidos pedidos) {
       System.out.println(pedidos);
 
-    pedidosClientsRepository.save(pedidos);
+      return pedidosClientsRepository.save(pedidos);
   }
 
   @PutMapping("/{id}")
@@ -73,6 +68,7 @@ public class PedidosClientsController {
               recordFound.setDescricao5(pedidos.getDescricao5());
               recordFound.setTotal5(pedidos.getTotal5());
               recordFound.setValorFinal(pedidos.getValorFinal());
+              recordFound.setStatus(pedidos.getStatus());
 
               Pedidos updated = pedidosClientsRepository.save(recordFound);
               return ResponseEntity.ok().body(updated);
