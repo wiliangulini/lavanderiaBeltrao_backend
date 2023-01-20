@@ -100,7 +100,13 @@ public class Pedidos {
   @Column(length =  100)
   private Number valorFinal;
 
-  @Column(length =  100)
-  private String status;
+  @Column(length =  20)
+  private Boolean pedidoRegistrado;
+
+  @Column(length =  20)
+  private Boolean pedidoPago;
+
+  @Column(length =  20)
+  private Boolean pedidoRetirado;
 
 }

@@ -68,7 +68,9 @@ public class PedidosClientsController {
               recordFound.setDescricao5(pedidos.getDescricao5());
               recordFound.setTotal5(pedidos.getTotal5());
               recordFound.setValorFinal(pedidos.getValorFinal());
-              recordFound.setStatus(pedidos.getStatus());
+              recordFound.setPedidoRegistrado(pedidos.getPedidoRegistrado());
+              recordFound.setPedidoPago(pedidos.getPedidoPago());
+              recordFound.setPedidoRetirado(pedidos.getPedidoRetirado());
 
               Pedidos updated = pedidosClientsRepository.save(recordFound);
               return ResponseEntity.ok().body(updated);
