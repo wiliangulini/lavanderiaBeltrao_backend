@@ -49,12 +49,12 @@
     </dependency>
   </dependencies>
 
-  <distributionManagement>
-    <repository>
-      <id>3.0.0</id>
-      <url>https://repo.maven.apache.org/maven2/</url>
-    </repository>
-  </distributionManagement>
+<!--  <distributionManagement>-->
+<!--    <repository>-->
+<!--      <id>3.0.0</id>-->
+<!--      <url>https://repo.maven.apache.org/maven2/</url>-->
+<!--    </repository>-->
+<!--  </distributionManagement>-->
 
   <build>
     <plugins>
