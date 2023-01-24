@@ -25,7 +25,7 @@ public class Pedidos {
   @Column(length =  12, nullable = false)
   private String telefone;
 
-  @Column(length =  10, nullable = false)
+  @Column(length =  10)
   private String cep;
 
   @Column(length =  150, nullable = false)
