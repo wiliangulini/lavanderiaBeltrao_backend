@@ -22,16 +22,16 @@ public class Client {
   @Column(length =  10)
   private String cep;
 
-  @Column(length =  150, nullable = false)
+  @Column(length =  150)
   private String cidade;
 
-  @Column(length =  150, nullable = false)
+  @Column(length =  150)
   private String rua;
 
-  @Column(length =  10, nullable = false)
+  @Column(length =  10)
   private String numCasa;
 
-  @Column(length =  150, nullable = false)
+  @Column(length =  150)
   private String bairro;
 
   @Column(length =  150)

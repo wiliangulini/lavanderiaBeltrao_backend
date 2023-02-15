@@ -28,16 +28,16 @@ public class Pedidos {
   @Column(length =  10)
   private String cep;
 
-  @Column(length =  150, nullable = false)
+  @Column(length =  150)
   private String cidade;
 
-  @Column(length =  150, nullable = false)
+  @Column(length =  150)
   private String rua;
 
   @Column(length =  10, nullable = false)
   private String numCasa;
 
-  @Column(length =  150, nullable = false)
+  @Column(length =  150)
   private String bairro;
 
   @Column(length =  150)
@@ -49,8 +49,14 @@ public class Pedidos {
   @Column(length =  150)
   private String descricao;
 
+  @Column(length =  150)
+  private String entrega_estimada;
+
   @Column(length =  100)
   private Number total;
+
+  @Column(length =  20)
+  private Boolean retirada;
 
   @Column(length =  100)
   private String quantidade1;
@@ -61,6 +67,9 @@ public class Pedidos {
   @Column(length =  100)
   private Number total1;
 
+  @Column(length =  20)
+  private Boolean retirada1;
+
   @Column(length =  100)
   private String quantidade2;
 
@@ -69,6 +78,9 @@ public class Pedidos {
 
   @Column(length =  100)
   private Number total2;
+
+  @Column(length =  20)
+  private Boolean retirada2;
 
   @Column(length =  100)
   private String quantidade3;
@@ -79,6 +91,9 @@ public class Pedidos {
   @Column(length =  100)
   private Number total3;
 
+  @Column(length =  20)
+  private Boolean retirada3;
+
   @Column(length =  100)
   private String quantidade4;
 
@@ -88,6 +103,9 @@ public class Pedidos {
   @Column(length =  100)
   private Number total4;
 
+  @Column(length =  20)
+  private Boolean retirada4;
+
   @Column(length =  100)
   private String quantidade5;
 
@@ -96,6 +114,9 @@ public class Pedidos {
 
   @Column(length =  100)
   private Number total5;
+
+  @Column(length =  20)
+  private Boolean retirada5;
 
   @Column(length =  100)
   private Number valorFinal;

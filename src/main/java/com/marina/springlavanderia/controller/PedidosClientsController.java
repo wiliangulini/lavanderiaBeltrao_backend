@@ -71,6 +71,13 @@ public class PedidosClientsController {
               recordFound.setPedidoRegistrado(pedidos.getPedidoRegistrado());
               recordFound.setPedidoPago(pedidos.getPedidoPago());
               recordFound.setPedidoRetirado(pedidos.getPedidoRetirado());
+              recordFound.setRetirada(pedidos.getRetirada());
+              recordFound.setRetirada1(pedidos.getRetirada1());
+              recordFound.setRetirada2(pedidos.getRetirada2());
+              recordFound.setRetirada3(pedidos.getRetirada3());
+              recordFound.setRetirada4(pedidos.getRetirada4());
+              recordFound.setRetirada5(pedidos.getRetirada5());
+              recordFound.setEntrega_estimada(pedidos.getEntrega_estimada());
 
               Pedidos updated = pedidosClientsRepository.save(recordFound);
               return ResponseEntity.ok().body(updated);
