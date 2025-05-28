@@ -1,5 +1,8 @@
 package com.marina.springlavanderia.DTO;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -19,6 +22,7 @@ public class PedidosDTO {
     private String entrega_estimada;
     private BigDecimal total;
     private Boolean retirada;
+    @JsonSerialize(using = ToStringSerializer.class)
     private BigDecimal valorFinal;
     private Boolean pedidoRegistrado;
     private Boolean pedidoPago;

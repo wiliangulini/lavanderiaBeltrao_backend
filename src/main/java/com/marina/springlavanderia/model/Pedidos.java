@@ -1,5 +1,8 @@
 package com.marina.springlavanderia.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -46,6 +49,7 @@ public class Pedidos {
   private Boolean retirada;
 
   @Column(precision = 10, scale = 2)
+  @JsonSerialize(using = ToStringSerializer.class)
   private BigDecimal valorFinal;
 
   private Boolean pedidoRegistrado;

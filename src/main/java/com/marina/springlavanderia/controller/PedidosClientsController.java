@@ -5,10 +5,11 @@ import com.marina.springlavanderia.service.PedidosService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("pedidos")
+@RequestMapping("/api/pedidos")
 public class PedidosClientsController {
 
     private final PedidosService pedidosService;
@@ -17,34 +18,44 @@ public class PedidosClientsController {
         this.pedidosService = pedidosService;
     }
 
-    @PostMapping
-    public ResponseEntity<PedidosDTO> criar(@RequestBody PedidosDTO dto) {
-        return ResponseEntity.ok(pedidosService.salvar(dto));
+    // 🔹 Listar todos os pedidos
+    @GetMapping
+    public ResponseEntity<List<PedidosDTO>> listarTodos() {
+        List<PedidosDTO> lista = pedidosService.listarTodos();
+        return ResponseEntity.ok(lista);
     }
 
+    // 🔹 Buscar pedido por ID
+    @GetMapping("/{id}")
+    public ResponseEntity<PedidosDTO> buscarPorId(@PathVariable Long id) {
+        return pedidosService.buscarPorId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+
+    // 🔸 Criar novo pedido
+    @PostMapping
+    public ResponseEntity<PedidosDTO> criar(@RequestBody PedidosDTO dto) {
+        PedidosDTO criado = pedidosService.salvar(dto);
+        return ResponseEntity.created(URI.create("/api/pedidos/" + criado.getId())).body(criado);
+    }
+
+    // 🔸 Atualizar pedido existente
     @PutMapping("/{id}")
     public ResponseEntity<PedidosDTO> atualizar(@PathVariable Long id, @RequestBody PedidosDTO dto) {
-        System.out.println("Atualizando pedido com ID: " + id);
         return pedidosService.atualizar(id, dto)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping
-    public ResponseEntity<List<PedidosDTO>> listar() {
-        return ResponseEntity.ok(pedidosService.listarTodos());
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<PedidosDTO> buscar(@PathVariable Long id) {
-        PedidosDTO dto = pedidosService.buscarPorId(id);
-        return ResponseEntity.ok(dto);
-    }
-
-
+    // 🔻 Deletar pedido
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
-        pedidosService.deletar(id);
-        return ResponseEntity.noContent().build();
+        boolean existe = pedidosService.deletar(id);
+        if (existe) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 }
