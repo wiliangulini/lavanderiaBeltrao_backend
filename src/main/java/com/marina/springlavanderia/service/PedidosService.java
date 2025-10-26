@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -33,6 +34,7 @@ public class PedidosService {
     public PedidosDTO salvar(PedidosDTO dto) {
         Pedidos pedido = pedidoMapper.toEntity(dto);
         associarPedidoNosItens(pedido);
+        recalcularValorFinal(pedido);
         Pedidos salvo = pedidosClientsRepository.save(pedido);
         return pedidoMapper.toDTO(salvo);
     }
@@ -45,6 +47,9 @@ public class PedidosService {
 
             // Gerenciar itens de forma inteligente
             atualizarItens(pedidoExistente, dto.getItens());
+
+            // Recalcular valorFinal baseado na soma dos itens
+            recalcularValorFinal(pedidoExistente);
 
             Pedidos salvo = pedidosClientsRepository.save(pedidoExistente);
             return pedidoMapper.toDTO(salvo);
@@ -59,6 +64,15 @@ public class PedidosService {
 
     private void associarPedidoNosItens(Pedidos pedido) {
         pedido.getItens().forEach(item -> item.setPedido(pedido));
+    }
+
+    private void recalcularValorFinal(Pedidos pedido) {
+        BigDecimal valorTotal = pedido.getItens().stream()
+                .map(PedidoItem::getTotal)
+                .filter(Objects::nonNull)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        pedido.setValorFinal(valorTotal);
     }
 
     private void atualizarItens(Pedidos pedido, List<PedidoItemDTO> novosItensDTO) {
