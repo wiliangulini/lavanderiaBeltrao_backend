@@ -31,9 +31,10 @@ public class PedidosDTO {
 
     // Construtor completo
     public PedidosDTO(Long id, LocalDate data, Integer numberPedido, String cliente, String telefone, String cep,
-                      String cidade, String rua, String numCasa, String bairro, String complemento, String entrega_estimada, BigDecimal total, Boolean retirada, BigDecimal valorFinal,
-                      Boolean pedidoRegistrado, Boolean pedidoPago, Boolean pedidoRetirado,
-                      List<PedidoItemDTO> itens) {
+            String cidade, String rua, String numCasa, String bairro, String complemento, String entrega_estimada,
+            BigDecimal total, Boolean retirada, BigDecimal valorFinal,
+            Boolean pedidoRegistrado, Boolean pedidoPago, Boolean pedidoRetirado,
+            List<PedidoItemDTO> itens) {
         this.id = id;
         this.data = data;
         this.numberPedido = numberPedido;
@@ -57,60 +58,155 @@ public class PedidosDTO {
 
     // Getters e Setters
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public LocalDate getData() { return data; }
-    public void setData(LocalDate data) { this.data = data; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public Integer getNumberPedido() { return numberPedido; }
-    public void setNumberPedido(Integer numberPedido) { this.numberPedido = numberPedido; }
+    public LocalDate getData() {
+        return data;
+    }
 
-    public String getCliente() { return cliente; }
-    public void setCliente(String cliente) { this.cliente = cliente; }
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
 
-    public String getTelefone() { return telefone; }
-    public void setTelefone(String telefone) { this.telefone = telefone; }
+    public Integer getNumberPedido() {
+        return numberPedido;
+    }
 
-    public String getCep() { return cep; }
-    public void setCep(String cep) { this.cep = cep; }
+    public void setNumberPedido(Integer numberPedido) {
+        this.numberPedido = numberPedido;
+    }
 
-    public String getCidade() { return cidade; }
-    public void setCidade(String cidade) { this.cidade = cidade; }
+    public String getCliente() {
+        return cliente;
+    }
 
-    public String getRua() { return rua; }
-    public void setRua(String rua) { this.rua = rua; }
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
 
-    public String getNumCasa() { return numCasa; }
-    public void setNumCasa(String numCasa) { this.numCasa = numCasa; }
+    public String getTelefone() {
+        return telefone;
+    }
 
-    public String getBairro() { return bairro; }
-    public void setBairro(String bairro) { this.bairro = bairro; }
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
-    public String getComplemento() { return complemento; }
-    public void setComplemento(String complemento) { this.complemento = complemento; }
+    public String getCep() {
+        return cep;
+    }
 
-    public String getEntrega_estimada() { return entrega_estimada; }
-    public void setEntrega_estimada(String entrega_estimada) { this.entrega_estimada = entrega_estimada; }
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 
-    public BigDecimal getTotal() { return total; }
-    public void setTotal(BigDecimal total) { this.total = total; }
+    public String getCidade() {
+        return cidade;
+    }
 
-    public Boolean getRetirada() { return retirada; }
-    public void setRetirada(Boolean retirada) { this.retirada = retirada; }
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
 
-    public BigDecimal getValorFinal() { return valorFinal; }
-    public void setValorFinal(BigDecimal valorFinal) { this.valorFinal = valorFinal; }
+    public String getRua() {
+        return rua;
+    }
 
-    public Boolean getPedidoRegistrado() { return pedidoRegistrado; }
-    public void setPedidoRegistrado(Boolean pedidoRegistrado) { this.pedidoRegistrado = pedidoRegistrado; }
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
 
-    public Boolean getPedidoPago() { return pedidoPago; }
-    public void setPedidoPago(Boolean pedidoPago) { this.pedidoPago = pedidoPago; }
+    public String getNumCasa() {
+        return numCasa;
+    }
 
-    public Boolean getPedidoRetirado() { return pedidoRetirado; }
-    public void setPedidoRetirado(Boolean pedidoRetirado) { this.pedidoRetirado = pedidoRetirado; }
+    public void setNumCasa(String numCasa) {
+        this.numCasa = numCasa;
+    }
 
-    public List<PedidoItemDTO> getItens() { return itens; }
-    public void setItens(List<PedidoItemDTO> itens) { this.itens = itens; }
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getEntrega_estimada() {
+        return entrega_estimada;
+    }
+
+    public void setEntrega_estimada(String entrega_estimada) {
+        this.entrega_estimada = entrega_estimada;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BigDecimal total) {
+        this.total = total;
+    }
+
+    public Boolean getRetirada() {
+        return retirada;
+    }
+
+    public void setRetirada(Boolean retirada) {
+        this.retirada = retirada;
+    }
+
+    public BigDecimal getValorFinal() {
+        return valorFinal;
+    }
+
+    public void setValorFinal(BigDecimal valorFinal) {
+        this.valorFinal = valorFinal;
+    }
+
+    public Boolean getPedidoRegistrado() {
+        return pedidoRegistrado;
+    }
+
+    public void setPedidoRegistrado(Boolean pedidoRegistrado) {
+        this.pedidoRegistrado = pedidoRegistrado;
+    }
+
+    public Boolean getPedidoPago() {
+        return pedidoPago;
+    }
+
+    public void setPedidoPago(Boolean pedidoPago) {
+        this.pedidoPago = pedidoPago;
+    }
+
+    public Boolean getPedidoRetirado() {
+        return pedidoRetirado;
+    }
+
+    public void setPedidoRetirado(Boolean pedidoRetirado) {
+        this.pedidoRetirado = pedidoRetirado;
+    }
+
+    public List<PedidoItemDTO> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<PedidoItemDTO> itens) {
+        this.itens = itens;
+    }
 }

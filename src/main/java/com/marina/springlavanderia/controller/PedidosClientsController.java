@@ -33,7 +33,6 @@ public class PedidosClientsController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-
     // 🔸 Criar novo pedido
     @PostMapping
     public ResponseEntity<PedidosDTO> criar(@RequestBody PedidosDTO dto) {
