@@ -23,6 +23,7 @@ public interface PedidoMapper {
     List<PedidoItem> toItemEntities(List<PedidoItemDTO> dtos);
 
     @Mapping(target = "id", ignore = true) // evita sobrescrever ID acidental
+    @Mapping(target = "itens", ignore = true) // gerenciado manualmente em atualizarItens()
     void updateEntityFromDTO(PedidosDTO dto, @MappingTarget Pedidos entity);
 
 }

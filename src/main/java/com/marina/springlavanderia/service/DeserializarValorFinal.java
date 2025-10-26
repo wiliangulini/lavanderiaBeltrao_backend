@@ -1,4 +1,4 @@
-/*
+
 package com.marina.springlavanderia.service;
 
 import java.io.*;
@@ -8,7 +8,7 @@ import java.util.*;
 public class DeserializarValorFinal {
     public static void main(String[] args) throws Exception {
         String url = "jdbc:mysql://localhost:3306/lavanderia_teste2";
-        String user = "root";
+        String user = "lavanderia";
         String password = "#Naotemsenha23#";
 
         Connection conn = DriverManager.getConnection(url, user, password);
@@ -43,4 +43,3 @@ public class DeserializarValorFinal {
     }
 }
 
- */
