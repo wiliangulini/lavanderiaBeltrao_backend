@@ -62,6 +62,28 @@ public class PedidosService {
                 .toList();
     }
 
+    public List<PedidosDTO> buscarPorQuery(String query) {
+        if (query == null || query.trim().isEmpty()) {
+            return listarTodos();
+        }
+
+        // Tenta converter para Integer para buscar por numberPedido
+        Integer numberPedido = null;
+        try {
+            numberPedido = Integer.parseInt(query.trim());
+        } catch (NumberFormatException e) {
+            // Se não for número, numberPedido fica null
+        }
+
+        return pedidosClientsRepository
+                .findByClienteContainingIgnoreCaseOrTelefoneContainingOrNumberPedido(
+                        query, query, numberPedido
+                )
+                .stream()
+                .map(pedidoMapper::toDTO)
+                .toList();
+    }
+
     private void associarPedidoNosItens(Pedidos pedido) {
         pedido.getItens().forEach(item -> item.setPedido(pedido));
     }

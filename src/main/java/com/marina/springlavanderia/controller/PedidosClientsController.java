@@ -25,6 +25,13 @@ public class PedidosClientsController {
         return ResponseEntity.ok(lista);
     }
 
+    // 🔹 Buscar pedidos por query (cliente, telefone ou número do pedido)
+    @GetMapping("/search")
+    public ResponseEntity<List<PedidosDTO>> buscar(@RequestParam(required = false) String query) {
+        List<PedidosDTO> resultado = pedidosService.buscarPorQuery(query);
+        return ResponseEntity.ok(resultado);
+    }
+
     // 🔹 Buscar pedido por ID
     @GetMapping("/{id}")
     public ResponseEntity<PedidosDTO> buscarPorId(@PathVariable Long id) {

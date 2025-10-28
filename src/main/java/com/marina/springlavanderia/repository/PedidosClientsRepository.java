@@ -19,4 +19,9 @@ public interface PedidosClientsRepository extends JpaRepository<Pedidos, Long> {
     @EntityGraph(attributePaths = "itens")
     Optional<Pedidos> findById(Long id);
 
+    @EntityGraph(attributePaths = "itens")
+    List<Pedidos> findByClienteContainingIgnoreCaseOrTelefoneContainingOrNumberPedido(
+            String cliente, String telefone, Integer numberPedido
+    );
+
 }
